@@ -1,10 +1,14 @@
-var express = require('express');
-var app = express();
+const http = require('http');
 
-app.listen(3000, ()=>  {
-    console.log('listening');
+const hostname = 'http://ec2-xx-xxx-xxx-xx.compute-1.amazonaws.com/';
+const port = 3000;
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World\n');
 });
 
-app.get('/',(req,res)=>  {
-    res.send('hi');
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
 });
