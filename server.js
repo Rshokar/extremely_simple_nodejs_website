@@ -6,6 +6,6 @@ function onRequest(req, res) {
     res.end();
 }
 
-http.createServer(onRequest).listen(8000);
+http.createServer(onRequest).listen(80);
 console.log("Server available");
 
